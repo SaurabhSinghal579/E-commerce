@@ -1,1 +1,0 @@
-G:\Python-Projects\Django Project\website\blog\static\blog
