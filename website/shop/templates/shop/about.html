@@ -1,3 +1,27 @@
 {% extends 'shop/basic.html' %}
 {% block title %}  About title {% endblock %}
-{% block body %}  <h1> Saurabh singhal </h1> {% endblock %}
+{% block body %}
+
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3 bg-primary">
+      <div class="container">
+        <h1><b>My Awesome Cart !</b></h1>
+        <p> <h5>My Awesome Cart Private Limited is an Indian e-commerce company, headquartered in Bangalore, and incorporated in Singapore as a private limited company. It was founded in October 2007 in Bangalore by 'Saurabh Singhal' , alumni of the Graphic Era, Dehradun. The company initially focused on online book sales before expanding into other product categories such as consumer electronics, fashion, home essentials, groceries, and lifestyle products
+
+            The service competes primarily with Amazon India and domestic rival Snapdeal. As of FY23, My Awesome Cart held a 48% market share in the Indian e-commerce industry. My Awesome Cart has a dominant position in the apparel segment, bolstered by its acquisition of Myntra, and was described as being "neck and neck" with Amazon in the sale of electronics and mobile phones.</h2></p>
+        <button class="btn btn-primary btn-lg" type="button">Learn More</button>
+      </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+<script>
+var sum=0;
+var cart = JSON.parse(localStorage.getItem('cart'));
+for(item in cart){
+  let qty=cart[item][0];
+  sum=sum+qty;
+}
+document.getElementById('cart').innerHTML = sum;
+</script>
+{% endblock %}

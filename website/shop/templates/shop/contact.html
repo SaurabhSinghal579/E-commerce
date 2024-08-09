@@ -1,3 +1,45 @@
 {% extends 'shop/basic.html' %}
 {% block title %}  Contact title {% endblock %}
-{% block body %}  <h1> Saurabh singhal </h1> {% endblock %}
+{% block body %}  
+<div class="container">
+    <h3>Contact us regarding any query !</h3>
+    <b>
+    <form action="/shop/contact/" method="post">{% csrf_token %}
+        <div class="form-group">
+            <label for="name" class="form-label">Name :</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group my-3">
+            <label for="name" class="form-label">Email :</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label for="name" class="form-label">Phone :</label>
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
+        </div>
+        <div class="form-group my-3">
+            <label for="desc">How May We Help You ?</label>
+            <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary"><b>Submit</b></button>
+    
+    </form>
+    </b>
+</div>
+
+{% endblock %}
+{% block js %}
+<script>
+var sum=0;
+var cart = JSON.parse(localStorage.getItem('cart'));
+for(item in cart){
+  let qty=cart[item][0];
+  sum=sum+qty;
+}
+document.getElementById('cart').innerHTML = sum;
+{%if thank%}
+alert("Thanks for contacting us. Our representative will contact you soon !!");
+document.location="/shop/shop";
+{%endif%}
+</script>
+{% endblock %}
